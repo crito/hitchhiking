@@ -6,8 +6,8 @@ from django.conf.urls.defaults import *
 
 urlpatterns = patterns('',
     # Example:
-    # (r'^hitchhiking/', include('hitchhiking.foo.urls')),
-
+    #(r'^/', include('hitchhiking.hitchhiker.urls')),
+    (r'^hitchhiker/$', 'hitchhiker.views.home', {}, 'home'),
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
     # to INSTALLED_APPS to enable admin documentation:
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
