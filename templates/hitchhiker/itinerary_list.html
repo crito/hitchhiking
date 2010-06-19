@@ -1,0 +1,9 @@
+{% block content %}
+    <h2>Itineraries</h2>
+    <ul>
+        {% for itinerary in object_list %}
+            <li>{{ itinerary.start_date }} till {{ itinerary.end_date }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
