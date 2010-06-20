@@ -113,15 +113,14 @@ a:hover, a:active {
 		font-size: 1.5em;		
 }
 
-#textbox h1 {
-		text-align: right;
-}
-
 .left { float: left; }
 .right { float: left; }
 
+#metainfo.caption {
+		text-align: right;
+}
 #metainfo tbody {
-		font-size: 0.3em;
+		font-size: 0.9em;
 }
 #metainfo.th {
 		font-weight: bold;
