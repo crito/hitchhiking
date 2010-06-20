@@ -9,3 +9,4 @@ pysqlite==2.6.0
 docutils==0.6
 setproctitle==1.0.1
 psycopg2
+pygments
