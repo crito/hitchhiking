@@ -1,0 +1,32 @@
+[
+  {
+    "pk": 1, 
+    "model": "flatpages.flatpage", 
+    "fields": {
+      "registration_required": false, 
+      "title": "About", 
+      "url": "/hitchhiking/about/", 
+      "template_name": "", 
+      "sites": [
+        1
+      ], 
+      "content": "<p>I want to make a virtual hitchhiking trip, without moving out of my studio.</p>\r\n\r\n<p>The project starts when a computer is left alone in the street. Skype is on, and I am on the screen. I start there my hitchhiking trip, where I start to communicate with people and ask them to carry me towards my destination. I can shout, I can ask for help, it's me (or a virtual me) without a body, struggling to go somewhere.</p>\r\n\r\n<p>As in all hitchhiking trips, it is  going to be an adventure, meeting new people, running the risk of being kidnapped, or getting lost, or ending up alone somewhere without my body. That means that I'll not have total control over it, I can imagine all kind of possibilities in my head and try to be as prepared as possible, but in this case, chance would have an important role.</p>\r\n\r\n<p>I am in my studio, behind my own computer with Skype on, recording my screen. The traveling computer (virtual me) is traced all the time and located in a map. The end result is the screen recording from my window of Skype and the maps with the itinerary. When I\u2019m travelling, this is live streamed on this website, you can also find an archive of the past itineraries on the menu.</p>\r\n\r\n<p>The computer has been manipulated and turned into a flat screen with a travel kit included, that is easy to carry and has the shape of a suitcase. The laptop is secured, for the case it gets stolen, with GPS locator, remote control, and other security anti thief software.</p>\r\n\r\n<p>It starts with short trips inside Amsterdam (eg. from the Ten Katestraat to the Spuistraat) that will develope into trips abroad.</p>\r\n\r\n<p>I am interested in exploring modern ways of communication, already existing, but giving them a different use. Skype is already fully integrated and used in our society, and mobile internet for laptops is also getting there. What are the possibilities that this offer to us, in which ways it changes our lives, and how it changes the definition of spaces. I am interested in exploring virtual and real spaces and how we can interact there.</p>\r\n\r\n<p>I am also interested in the concepts of tracing objects, security and privacy; and how every new invention of piece of technology is little by little redefining this concepts and changing our society. What if all the objects, spaces and people would be tagged and traceable? Are we already now?</p>\r\n\r\n<p>How people will react? I am also interested in the sociological aspects of the project.\r\nWould the audience get excited and would they get involved and become participants?\r\nWould they spend a little time taking \u201cme\u201d on their way? Would they steal the computer or leave it again alone?</p>", 
+      "enable_comments": false
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "flatpages.flatpage", 
+    "fields": {
+      "registration_required": false, 
+      "title": "Biographies", 
+      "url": "/hitchhiking/bios/", 
+      "template_name": "", 
+      "sites": [
+        1
+      ], 
+      "content": "<p>Maria Zendrera (Barcelona / Amsterdam, 1983) studied photography and contemporary dance (IEFC, Barcelona / SNDO, Amsterdam ). She is currently studying in the Audio Visual department at the Rietveld Art Academie in Amsterdam. She has exhibitted in the exhibition Privacy XYZ / with the installation with the same title, Rietveld,  Amsterdam (2009); in the Rietveld Uncut, with the performance  \u201cWhile I was standing on an iceberg\u201d that was presented in the Brakke Grond in Amsterdam (2009); in the exhibition Out of Bounds with Text and Body, photos n1 and n5, exhibition in P8 Gallery in Tel Aviv/Yafo, Israel (2009); she has been guest photographer in the collective Active Stills, Israel (2010) and has performed a large number of actions and interventions in public space.</p>\r\n\r\n<p>* I have to thank to my main technician Christo Buschek and to my friends Jaromil and Tati for giving me advise and support. Without them, this project would not have been possible.</p>\r\n\r\n<p>Christo Buschek (Graz/Amsterdam) has a background as a linux system administrator and python programmer. Studied computer science at the TU Graz and was a member of the ASCII collective in Amsterdam. Specialized in clustering and hosting. Has worked for Toltech B.V. doing the network and servers for the Nimk and for AT5. Currently setting his own web hosting cluster 30loops (http://30loops.net).</p>\r\n\r\n<p>Denis 'Jaromil' Roio (Italy/Amsterdam) is the main author of the GNU/Linux Live CD Dyne:bolic as well as of a number of audiovisual tools. He is also an artist who has exhibited internationally. Based in Amsterdam, Jaromil is active on open source R&D in art and multimedia for the NIMK, adjunct lecturer (year 2008) for the Media Design MA at PZwart / WDKA in Rotterdam and the Digital Environment Design MA at NABA in Milan.</p>\r\n\r\n<p>Tatiana de la O (Argentina/Amsterdam) entered to the free software world from the independent media, www.indymedia.org. Developing alternative communication platforms and free tools for edition, manipulation, hosting and sharing video have been her goals since then. She is also a VJ and produces free video loops, and writes documentation about real time video manipulation and streaming with free software tools.</p>", 
+      "enable_comments": false
+    }
+  }
+]
