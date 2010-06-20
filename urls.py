@@ -19,7 +19,7 @@ urlpatterns = patterns('',
     # past itineraries (archive)
     (r'^hitchhiking/archive/$', list_detail.object_list, itinerary_list),
     # past itinerary detail (object from archive)
-    (r'^hitchhiking/(?P<object_id>\d+)/$', list_detail.object_detail, itinerary_list),
+    (r'^hitchhiking/(?P<object_id>\d+)/$', 'hitchhiker.views.past_trip', {}, 'past_trip'),
 
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
     # to INSTALLED_APPS to enable admin documentation:

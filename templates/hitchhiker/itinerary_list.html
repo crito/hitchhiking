@@ -1,9 +1,40 @@
-{% block content %}
-    <h2>Itineraries</h2>
-    <ul>
-        {% for itinerary in object_list %}
-            <li>{{ itinerary.start_date }} till {{ itinerary.end_date }}</li>
-        {% endfor %}
-    </ul>
-{% endblock %}
+{% extends "base.html" %}
 
+{% block title %}Hitchhiking - Past Itinerary{% endblock title %}
+
+{% block content %}
+<video 
+    id="video" autoplay controls
+    width="515" height="400">
+    <source src="{{ itinerary.video }}" type="video/ogg"></source>
+    <source src="http://www.mariazendre.org/media/video/firsttest.mp4"></source>
+    Your Browser doesn't support this video. Update to latest firefox.
+</video>
+<br />
+<iframe 
+    src="https://rejo.zenger.nl/topo/osm/?fn=http://insecure.rejo.zenger.nl/gps/2009-04-18.gpx" 
+    width="515" height="320" frameborder="0">
+</iframe>
+{% endblock content %}
+
+{% block textbox %}
+<div id="textbox">
+    <table id="metainfo">
+        <caption>Past Itinerary</caption>
+        <tbody>
+            <tr class="even">
+                <th>Start</th>
+                <td>{{ itinerary.start_date|time:"d:b:Y H:i" }}</td>
+            </tr>
+            <tr class="odd">
+                <th>Duration</th>
+                <td>{{ itinerary.start_date|timesince:itinerary.end_date }}</td>
+            </tr>
+            <tr class="even">
+                <th>Destination</th>
+                <td>{{ itinerary.destination }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock textbox %}
