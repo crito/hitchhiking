@@ -10,3 +10,4 @@ docutils==0.6
 setproctitle==1.0.1
 psycopg2
 pygments
+django-debug-toolbar
