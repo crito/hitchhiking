@@ -1,5 +1,13 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 
+from hitchhiker.models import Itinerary
+
 def home(request):
-    return render_to_response('hitchhiker/base.html', {}, context_instance=RequestContext(request))
+    active_trip = Itinerary.objects.filter(active=True)
+    if active_trip:
+        return render_to_response('hitchhiker/active_trip.html', {
+            'itinerary': active_trip}, 
+            context_instance=RequestContext(request))
+    else:
+        return redirect('/hitchhiking/about/')
