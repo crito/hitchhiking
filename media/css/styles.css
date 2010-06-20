@@ -85,7 +85,7 @@ a:hover, a:active {
 		margin-bottom: 35px;
 }
 
-#content, #navigation {
+#content {
 		width: 515px;
 		float: right;
 }
@@ -96,19 +96,19 @@ a:hover, a:active {
 		float: left;
 }
 
-#navigation ul.nav {
+#content ul.nav {
 		list-style: none;
 		display: block;
 		width: 100%;
 }
 
-#navigation ul.nav li {
+#content ul.nav li {
 		display: block;
 		float: left;
 		margin: 0 2em 0 0;
 }
 
-#navigation ul.nav li a {
+#content ul.nav li a {
 		text-decoration:none;
 		display:block;
 		padding-right: 0.5em;

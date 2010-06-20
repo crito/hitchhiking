@@ -8,9 +8,9 @@
     <body>
         <div id="box-wrap">
             <div id="header">
-                <img src="/media/img/logo.gif" width="348" height="43" alt="Hitchhiking" />
+                <a href="http://mariazendre.org/hitchhiking/" alt="Home"><img src="/media/img/logo.gif" width="348" height="43" alt="Hitchhiking" /></a>
             </div> <!-- div id="header" -->
-            <div id="navigation">
+            <div id="content">
                 {% block navigation %}
                 <ul class="nav">
                     <li><a href="http://mariazendre.org/hitchhiking/archive/">Past itineraries</a></li>
@@ -19,8 +19,6 @@
                     <li><a href="http://mariazendre.org/hitchhiking/contact/">Contact</a></li>
                 </ul>
                 {% endblock %}
-            </div> <!-- div id="navigation" -->
-            <div id="content">
                 {% block content %}
                 {% endblock %}
             </div> <!-- div id="content" -->
