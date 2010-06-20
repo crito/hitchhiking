@@ -2,4 +2,4 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 
 def home(request):
-    return render_to_response('site.html', {}, context_instance=RequestContext(request))
+    return render_to_response('hitchhiker/base.html', {}, context_instance=RequestContext(request))
