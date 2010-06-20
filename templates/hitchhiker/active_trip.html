@@ -23,8 +23,8 @@
         <caption>Current Itinerary</caption>
         <tbody>
             <tr class="even">
-                <th>Start</th>
-                <td>{{ itinerary.start_date|date:"SHORT_DATE_FORMAT" }}</td>
+                <th>Time Running</th>
+                <td>{{ itinerary.start_date|timesince }}</td>
             </tr>
             <tr class="odd">
                 <th>Destination</th>
