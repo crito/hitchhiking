@@ -59,16 +59,21 @@ body {
 
 p { text-align: justify; }
 
+a { color: #696969; }
+
 a:link {
    font-weight: bold;
    text-decoration: none;
+	 color: #696969;
 }
 a:visited {
    font-weight: bold;
    text-decoration: none;
+	 color: #696969;
 }
 a:hover, a:active {
-   text-decoration: underline;
+	  text-decoration: none;
+	  color: #961a1a
 }
 
 #box-wrap {
@@ -83,11 +88,18 @@ a:hover, a:active {
 
 #content, #navigation {
 		width: 515px;
-		margin-left: 188px;
+/*		margin-left: 188px;*/
+}
+
+#content {
+		float: right;
+		width: 515px;
 }
 
 #textbox {
-		width: 292px;
+		width: 180px;
+		margin-top: 195px;
+		float: left;
 }
 
 #navigation ul.nav {
@@ -106,6 +118,7 @@ a:hover, a:active {
 		text-decoration:none;
 		display:block;
 		padding-right: 0.5em;
+		font-size: 1.5em;		
 }
 
 .left { float: left; }
