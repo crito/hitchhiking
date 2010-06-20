@@ -118,18 +118,21 @@ a:hover, a:active {
 .left { float: left; }
 .right { float: left; }
 
-#metainfo.caption {
+#metainfo caption h1 {
 		text-align: right;
+        font-weight: bold;
 }
 #metainfo tbody {
 		font-size: 0.9em;
 }
-#metainfo.th {
+#metainfo th {
 		font-weight: bold;
+        margin-right: 0.2em;
 }
 
 #metainfo tr.even {
-		background-color: #bfbfbf;
+		background-color: #dedede;
 }
+
 
 
