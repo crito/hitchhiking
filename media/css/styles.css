@@ -52,7 +52,6 @@ table {
 /* General Styling */
 
 body {
-		margin: 5px;
 		font: 75% courier, monospace;
 		line-height: 1.9;
 }
@@ -78,7 +77,7 @@ a:hover, a:active {
 
 #box-wrap {
 	margin: auto;
-	width:900px;
+	width:px;
 }
 
 #header {
@@ -88,16 +87,11 @@ a:hover, a:active {
 
 #content, #navigation {
 		width: 515px;
-/*		margin-left: 188px;*/
-}
-
-#content {
 		float: right;
-		width: 515px;
 }
 
 #textbox {
-		width: 180px;
+		width: 194px;
 		margin-top: 195px;
 		float: left;
 }
