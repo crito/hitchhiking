@@ -49,6 +49,11 @@ table {
 	border-spacing: 0;
 }
 
+#box-wrap {
+	margin: auto;
+	width:900px;
+}
+
 #content {
 		width: 515px;
 		margin-left: 188px;
@@ -73,3 +78,7 @@ table {
 		display:block;
 		padding:0.3em 0.5em;
 }
+
+.left { float: left; }
+.right { float: left; }
+
