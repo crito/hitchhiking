@@ -81,29 +81,31 @@ a:hover, a:active {
 		margin-bottom: 35px;
 }
 
-#content {
+#content, #navigation {
 		width: 515px;
 		margin-left: 188px;
 }
+
 #textbox {
 		width: 292px;
 }
-#content ul.nav {
+
+#navigation ul.nav {
 		list-style: none;
 		display: block;
 		width: 100%;
 }
 
-#content ul.nav li {
+#navigation ul.nav li {
 		display: block;
 		float: left;
 		margin: 0 2em 0 0;
 }
 
-#content ul.nav li a {
+#navigation ul.nav li a {
 		text-decoration:none;
 		display:block;
-		padding:0.3em 0.5em;
+		padding-right: 0.5em;
 }
 
 .left { float: left; }
