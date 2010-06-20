@@ -87,13 +87,11 @@ a:hover, a:active {
 
 #content {
 		width: 520px;
-		float: right;
 }
 
 #textbox {
 		width: 194px;
 		margin-top: 195px;
-		float: left;
 }
 
 #content ul.nav {
@@ -115,6 +113,22 @@ a:hover, a:active {
 		font-size: 1.5em;		
 }
 
+#textbox h1 {
+		text-align: right;
+}
+
 .left { float: left; }
 .right { float: left; }
+
+#metainfo tbody {
+		font-size: 0.3em;
+}
+#metainfo.th {
+		font-weight: bold;
+}
+
+#metainfo tr.even {
+		background-color: #bfbfbf;
+}
+
 
