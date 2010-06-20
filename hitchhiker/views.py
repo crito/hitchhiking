@@ -19,5 +19,3 @@ def past_trip(request, object_id):
     return render_to_response('hitchhiker/past_trip.html', {
             'itinerary': past_trip}, 
             context_instance=RequestContext(request))
-    else:
-        return redirect('/hitchhiking/about/')
