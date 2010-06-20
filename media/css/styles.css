@@ -49,6 +49,28 @@ table {
 	border-spacing: 0;
 }
 
+/* General Styling */
+
+body {
+		margin: 5px;
+		font: 75% courier, monospace;
+		line-height: 1.9;
+}
+
+p { text-align: justify; }
+
+a:link {
+   font-weight: bold;
+   text-decoration: none;
+}
+a:visited {
+   font-weight: bold;
+   text-decoration: none;
+}
+a:hover, a:active {
+   text-decoration: underline;
+}
+
 #box-wrap {
 	margin: auto;
 	width:900px;
