@@ -30,8 +30,21 @@ from django.db import models
 
 class Itinerary(models.Model):
     active = models.BooleanField(default=False)
-    start_date = models.DateTimeField()
-    end_date = models.DateTimeField()
-    gpx_file = models.FileField(upload_to="gpx")
+    start_date = models.DateTimeField(null=True, blank=True)
+    start = models.CharField(max_length=200, blank=True, default="Hasebroekstraat")
+    end_date = models.DateTimeField(null=True, blank=True)
+    destination = models.CharField(max_length=200, blank=True, default="Spuistraat")
+    video = models.URLField(default="http://stream.30loops.net:8000/hitchhiking.ogg")
+    gpx_file = models.FileField(upload_to="gpx", blank=True)
+
+    class Meta:
+        ordering = ['start_date']
+        verbose_name_plural = 'Itineraries'
+
+    def __unicode__(self):
+        return '%s itinerary started on %s' % (
+                ('Active' if self.active else 'Past'),
+                str(self.start_date))
+
 
 
