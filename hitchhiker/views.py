@@ -19,3 +19,10 @@ def past_trip(request, object_id):
     return render_to_response('hitchhiker/past_trip.html', {
             'itinerary': past_trip}, 
             context_instance=RequestContext(request))
+
+def archive(request):
+    all_trips = Itinerary.objects.filter(active=False)
+
+    return render_to_response('hitchhiker/archive.html', {
+        'all_trips': all_trips},
+        context_instance=RequestContext(request))
