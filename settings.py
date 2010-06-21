@@ -74,7 +74,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    #'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 INTERNAL_IPS = ('82.170.92.199',)
 ROOT_URLCONF = 'hitchhiking.urls'
@@ -102,5 +102,6 @@ INSTALLED_APPS = (
     'django_extensions',
     #'django.contrib.gis',
     'hitchhiking.hitchhiker',
-    'debug_toolbar',
+    #'debug_toolbar',
+    'contact_form',
 )
