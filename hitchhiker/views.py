@@ -38,6 +38,8 @@ def archive(request):
                 t = l.pop()
             except:
                 trips[i].append(None)
+                break
+
             trips[i].append(t)
             cells += 1
     

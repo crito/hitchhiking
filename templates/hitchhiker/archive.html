@@ -6,8 +6,9 @@
 <ul class="rows">
 {% for t1, t2, t3 in all_trips %}
 <li>
+    {% if t1 %}
     <span class="cell">
-        <img src="{{ t1.poster }}" alt="t1 poster image" />
+        <a href="http://mariazendre.org/hitchhiking/{{ t1.id }}/"><img src="{{ t1.poster }}" alt="t1 poster image" /></a>
         <table id="archive_meta">
             <tr>
                 <th>Start</th>
@@ -21,8 +22,10 @@
             </tr>
         </table>
     </span>
+    {% endif %}
+    {% if t2 %}
     <span class="cell">
-        <img src="{{ t2.poster }}" alt="t2 poster image" />
+        <a href="http://mariazendre.org/hitchhiking/{{ t2.id }}/"><img src="{{ t2.poster }}" alt="t1 poster image" /></a>
         <table id="archive_meta">
             <tr>
                 <th>Start</th>
@@ -36,8 +39,10 @@
             </tr>
         </table>
     </span>
+    {% endif %}
+    {% if t3 %}
     <span class="cell">
-        <img src="{{ t3.poster }}" alt="t3 poster image" />
+        <a href="http://mariazendre.org/hitchhiking/{{ t3.id }}/"><img src="{{ t3.poster }}" alt="t1 poster image" /></a>
         <table id="archive_meta">
             <tr>
                 <th>Start</th>
@@ -51,6 +56,7 @@
             </tr>
         </table>
     </span>
+    {% endif %}
 </li>
 {% endfor %}
 </ul>
