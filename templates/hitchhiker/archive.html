@@ -3,7 +3,57 @@
 {% block title %}Hitchhiking - Archive{% endblock title %}
 
 {% block content %}
-
+<ul class="rows">
+{% for t1, t2, t3 in all_trips %}
+<li>
+    <span class="cell">
+        <img src="{{ t1.poster }}" alt="t1 poster image" />
+        <table id="archive_meta">
+            <tr>
+                <th>Start</th>
+                <td>{{ t1.start_date|date:"d M Y" }} {{ t1.start_date|time:"H:i" }}<br />
+                    {{ t1.start }}</td>
+            </tr>
+            <tr>
+                <th>End</th>
+                <td>{{ t1.end_date|date:"d M Y" }} {{ t1.end_date|time:"H:i" }}<br />
+                    {{ t1.end }}</td>
+            </tr>
+        </table>
+    </span>
+    <span class="cell">
+        <img src="{{ t2.poster }}" alt="t2 poster image" />
+        <table id="archive_meta">
+            <tr>
+                <th>Start</th>
+                <td>{{ t2.start_date|date:"d M Y" }} {{ t2.start_date|time:"H:i" }}<br />
+                    {{ t2.start }}</td>
+            </tr>
+            <tr>
+                <th>End</th>
+                <td>{{ t2.end_date|date:"d M Y" }} {{ t2.end_date|time:"H:i" }}<br />
+                    {{ t2.end }}</td>
+            </tr>
+        </table>
+    </span>
+    <span class="cell">
+        <img src="{{ t3.poster }}" alt="t3 poster image" />
+        <table id="archive_meta">
+            <tr>
+                <th>Start</th>
+                <td>{{ t3.start_date|date:"d M Y" }} {{ t3.start_date|time:"H:i" }}<br />
+                    {{ t3.start }}</td>
+            </tr>
+            <tr>
+                <th>End</th>
+                <td>{{ t3.end_date|date:"d M Y" }} {{ t3.end_date|time:"H:i" }}<br />
+                    {{ t3.end }}</td>
+            </tr>
+        </table>
+    </span>
+</li>
+{% endfor %}
+</ul>
 {% endblock content %}
 
 {% block textbox %}

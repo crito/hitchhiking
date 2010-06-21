@@ -22,7 +22,25 @@ def past_trip(request, object_id):
 
 def archive(request):
     all_trips = Itinerary.objects.filter(active=False)
+    active_trip = Itinerary.objects.filter(active=True)
+    
+    # Fill an array with three trips per row.
+    nr_trips = len(all_trips)
+    nr_rows = (nr_trips + 3 - 1) / 3
 
+    l = list(all_trips)
+    trips = []
+    for i in range(nr_rows):
+        trips.append([])
+        cells = 0
+        while cells < 3:
+            try:
+                t = l.pop()
+            except:
+                trips[i].append(None)
+            trips[i].append(t)
+            cells += 1
+    
     return render_to_response('hitchhiker/archive.html', {
-        'all_trips': all_trips},
+        'all_trips': trips},
         context_instance=RequestContext(request))
