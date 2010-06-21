@@ -36,6 +36,7 @@ class Itinerary(models.Model):
     destination = models.CharField(max_length=200, blank=True, default="Spuistraat")
     video = models.URLField(default="http://stream.30loops.net:8000/hitchhiking.ogg")
     gpx_file = models.FileField(upload_to="gpx", blank=True)
+    poster = models.URLField(default="http://mariazendre.org/media/poster/1.png")
 
     class Meta:
         ordering = ['start_date']
