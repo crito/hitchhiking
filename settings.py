@@ -15,7 +15,7 @@ DATABASES = {
         'NAME': 'hitchhiking',                      # Or path to database file if using sqlite3.
         'USER': 'hitchhiking',                      # Not used with sqlite3.
         'PASSWORD': 'hitchhiking',                  # Not used with sqlite3.
-        'HOST': 'psql1.30loops.net',                      # Set to empty string for localhost. Not used with sqlite3.
+        'HOST': 'psql.30loops.net',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
@@ -45,7 +45,7 @@ USE_L10N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = '/srv/Envs/hitchhiking/hitchhiking/media/'
+MEDIA_ROOT = '/srv/Envs/mariazendre.org/hitchhiking/media/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -84,7 +84,7 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     '/home/crito/Envs/hitchhiking/hitchhiking/templates',
-    '/srv/Envs/hitchhiking/hitchhiking/templates',
+    '/srv/Envs/mariazendre.org/hitchhiking/templates',
 )
 
 INSTALLED_APPS = (

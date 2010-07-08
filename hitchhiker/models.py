@@ -23,7 +23,7 @@ class Itinerary(models.Model):
 class Position(models.Model):
     longitude = models.FloatField()
     latitude = models.FloatField()
-    timestamp = models.DateTimeField(default=auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
     itinerary = models.ForeignKey(Itinerary)
 
     class Meta:

@@ -48,7 +48,8 @@ def archive(request):
         'all_trips': trips},
         context_instance=RequestContext(request))
 
-class Position(object):
+class Position:
+
     def __call__(self, request):
         self.request = request
 
@@ -62,15 +63,18 @@ class Position(object):
         return callback()
 
     def do_GET(self):
+        from django.core import serializers
+        import simplejson as json
+
         active_trip = Itinerary.objects.filter(active=True)
 
         if not active_trip:
             raise Http404
 
         data = []
-        position = Position.objects.latest('timestamp').filter(itinerary__id=active_trip.id)
+        position = Position.objects.filter(itinerary=active_trip[0]).latest('timestamp')
 
-        data = serializers.serialize("json", position)
+        data = serializers.serialize("json", [position])
 
         return HttpResponse([data], mimetype="text/plain")
 
