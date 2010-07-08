@@ -1,5 +1,6 @@
 from django.shortcuts import render_to_response, redirect, get_object_or_404
 from django.template import RequestContext
+from django.http import Http404
 
 from hitchhiker.models import Itinerary
 
@@ -46,3 +47,29 @@ def archive(request):
     return render_to_response('hitchhiker/archive.html', {
         'all_trips': trips},
         context_instance=RequestContext(request))
+
+class Position(object):
+    def __call__(self, request):
+        self.request = request
+
+        try:
+            callback = getattr(self, "do_%s" % request.method)
+        except AttributeError:
+            allowed_methods = [m.lstrip("do_") for m in dir(self) if
+                    m.startswith("do_")]
+            return HttpResponseNotAllowed(allowed_methods)
+
+        return callback()
+
+    def do_GET(self):
+        active_trip = Itinerary.objects.filter(active=True)
+
+        if not active_trip:
+            raise Http404
+
+
+    def do_PUT(self):
+        active_trip = Itinerary.objects.filter(active=True)
+
+        if not active_trip:
+            raise Http404

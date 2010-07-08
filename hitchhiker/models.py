@@ -1,33 +1,5 @@
 from django.db import models
 
-#class WorldBorders(models.Model):
-#        # Regular Django fields corresponding to the attributes in the
-#    # world borders shapefile.
-#    name = models.CharField(max_length=50)
-#    area = models.IntegerField()
-#    pop2005 = models.IntegerField('Population 2005')
-#    fips = models.CharField('FIPS Code', max_length=2)
-#    iso2 = models.CharField('2 Digit ISO', max_length=2)
-#    iso3 = models.CharField('3 Digit ISO', max_length=3)
-#    un = models.IntegerField('United Nations Code')
-#    region = models.IntegerField('Region Code')
-#    subregion = models.IntegerField('Sub-Region Code')
-#    lon = models.FloatField()
-#    lat = models.FloatField()
-
-    # GeoDjango-specific: a geometry field (MultiPolygonField), and
-    # overriding the default manager with a GeoManager instance.
-#    mpoly = models.MultiPolygonField()
-#    objects = models.GeoManager()
-
-    # So the model is pluralized correctly in the admin.
-#    class Meta:
-#                verbose_name_plural = "World Borders"
-
-#    # Returns the string representation of the model.
-#    def __unicode__(self):
-#                return self.name
-
 class Itinerary(models.Model):
     active = models.BooleanField(default=False)
     start_date = models.DateTimeField(null=True, blank=True)
@@ -48,4 +20,21 @@ class Itinerary(models.Model):
                 str(self.start_date))
 
 
+class Position(models.Model):
+    longitude = models.FloatField()
+    latitude = models.FloatField()
+    timestamp = models.DateTimeField(default=auto_now_add=True)
+    itinerary = models.ForeignKey(Itinerary)
 
+    class Meta:
+        ordering = ['timestamp']
+
+    def __unicode__(self):
+        return "%s/%s" % (self.longitude, self.latitude)
+
+class Location(models.Model):
+    description = models.TextField(blank=True)
+    position = models.ForeignKey(Position)
+
+    def __unicode__(self):
+        return "%s/%s" % (self.position.longitude, self.position.latitude)
