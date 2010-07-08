@@ -79,7 +79,19 @@ class Position:
         return HttpResponse([data], mimetype="text/plain")
 
     def do_PUT(self):
+        from django.core import serializers
+        import simplejson as json
+
         active_trip = Itinerary.objects.filter(active=True)
 
         if not active_trip:
             raise Http404
+
+        try:
+            deserialized = serializers.deserialize("json", self.request.raw_post_data)
+            put_position = list(deserialized)[0].object
+        except (ValueError, TypeError, IndexError):
+            response = HttpResponse()
+            response.status_code = 400
+            return response
+
