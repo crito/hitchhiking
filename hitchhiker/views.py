@@ -67,6 +67,12 @@ class Position(object):
         if not active_trip:
             raise Http404
 
+        data = []
+        position = Position.objects.latest('timestamp').filter(itinerary__id=active_trip.id)
+
+        data = serializers.serialize("json", position)
+
+        return HttpResponse([data], mimetype="text/plain")
 
     def do_PUT(self):
         active_trip = Itinerary.objects.filter(active=True)
