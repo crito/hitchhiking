@@ -1,8 +1,8 @@
 from django.shortcuts import render_to_response, redirect, get_object_or_404
 from django.template import RequestContext
-from django.http import Http404
+from django.http import Http404, HttpResponse
 
-from hitchhiker.models import Itinerary
+from hitchhiker.models import Itinerary, Position
 
 def home(request):
     active_trip = Itinerary.objects.filter(active=True)
@@ -48,11 +48,10 @@ def archive(request):
         'all_trips': trips},
         context_instance=RequestContext(request))
 
-class Position:
-
+class Position():
     def __call__(self, request):
         self.request = request
-
+        
         try:
             callback = getattr(self, "do_%s" % request.method)
         except AttributeError:
@@ -67,15 +66,13 @@ class Position:
         import simplejson as json
 
         active_trip = Itinerary.objects.filter(active=True)
-
         if not active_trip:
             raise Http404
 
         data = []
         position = Position.objects.filter(itinerary=active_trip[0]).latest('timestamp')
-
         data = serializers.serialize("json", [position])
-
+        
         return HttpResponse([data], mimetype="text/plain")
 
     def do_PUT(self):
@@ -88,10 +85,13 @@ class Position:
             raise Http404
 
         try:
-            deserialized = serializers.deserialize("json", self.request.raw_post_data)
-            put_position = list(deserialized)[0].object
+            data = self.request.raw_post_data
+            print data
+#            deserialized = serializers.deserialize("json", self.request.raw_post_data)
+#            put_position = list(deserialized)[0].object
         except (ValueError, TypeError, IndexError):
             response = HttpResponse()
             response.status_code = 400
             return response
-
+        response = HttpResponse(data, mimetype="text/plain")
+        return response
