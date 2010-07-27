@@ -7,7 +7,6 @@ from hitchhiker.models import Itinerary, Position
 def home(request):
     active_trip = Itinerary.objects.filter(active=True)
     if active_trip:
-        print active_trip[0].destination
         return render_to_response('hitchhiker/active_trip.html', {   
             'itinerary': active_trip[0]}, 
             context_instance=RequestContext(request))
@@ -64,6 +63,7 @@ class Position():
     def do_GET(self):
         from django.core import serializers
         import simplejson as json
+        from hitchhiker.models import Itinerary, Position
 
         active_trip = Itinerary.objects.filter(active=True)
         if not active_trip:
@@ -76,22 +76,36 @@ class Position():
         return HttpResponse([data], mimetype="text/plain")
 
     def do_PUT(self):
-        from django.core import serializers
+        """Read the gps location from a json object."""
         import simplejson as json
+        from hitchhiker.models import Itinerary, Position
 
         active_trip = Itinerary.objects.filter(active=True)
-
+        
+        # If there is no active trip return an error
         if not active_trip:
             raise Http404
 
+        response = HttpResponse()
+
+        # Get body of PUT request and load it as a JSON object.
         try:
-            data = self.request.raw_post_data
-            print data
-#            deserialized = serializers.deserialize("json", self.request.raw_post_data)
-#            put_position = list(deserialized)[0].object
+            position = json.loads(self.request.raw_post_data)
         except (ValueError, TypeError, IndexError):
-            response = HttpResponse()
+            response.write("Position could not be retrieved from request.")
             response.status_code = 400
             return response
-        response = HttpResponse(data, mimetype="text/plain")
+        
+        # Create a new position object
+        try:
+            p = Position.objects.create(
+                longitude = float(position['lon']), 
+                latitude = float(position['lat']),
+                itinerary = active_trip[0])
+        except:
+            response.write("Position could not be saved.")
+            response.status_code = 500
+            return response
+
+        response.status_code = 200
         return response
