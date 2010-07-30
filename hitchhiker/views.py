@@ -7,8 +7,8 @@ from hitchhiker.models import Itinerary, Position
 def home(request):
     active_trip = Itinerary.objects.filter(active=True)
     if active_trip:
-        return render_to_response('hitchhiker/active_trip.html', {   
-            'itinerary': active_trip[0]}, 
+        return render_to_response('hitchhiker/active_trip.html', {
+            'itinerary': active_trip[0]},
             context_instance=RequestContext(request))
     else:
         return redirect('/hitchhiking/about/')
@@ -17,13 +17,13 @@ def past_trip(request, object_id):
     past_trip = get_object_or_404(Itinerary, pk=object_id)
 
     return render_to_response('hitchhiker/past_trip.html', {
-            'itinerary': past_trip}, 
+            'itinerary': past_trip},
             context_instance=RequestContext(request))
 
 def archive(request):
     all_trips = Itinerary.objects.filter(active=False)
     active_trip = Itinerary.objects.filter(active=True)
-    
+
     # Fill an array with three trips per row.
     nr_trips = len(all_trips)
     nr_rows = (nr_trips + 3 - 1) / 3
@@ -42,15 +42,27 @@ def archive(request):
 
             trips[i].append(t)
             cells += 1
-    
+
     return render_to_response('hitchhiker/archive.html', {
         'all_trips': trips},
         context_instance=RequestContext(request))
 
+def get_gpx(request, itinerary_id):
+    itinerary = get_object_or_404(Itinerary, pk=itinerary_id)
+    track = Position.objects.filter(itinerary=itinerary)
+    locations = null
+
+    return render_to_response('hitchhiker/template.gpx', {
+        'itinerary': itinerary,
+        'track': track,
+        'locations': locations,}
+        context_instance=RequestContext(request),
+        mimetype="text/plain")
+
 class Position():
     def __call__(self, request):
         self.request = request
-        
+
         try:
             callback = getattr(self, "do_%s" % request.method)
         except AttributeError:
@@ -72,7 +84,7 @@ class Position():
         data = []
         position = Position.objects.filter(itinerary=active_trip[0]).latest('timestamp')
         data = serializers.serialize("json", [position])
-        
+
         return HttpResponse([data], mimetype="text/plain")
 
     def do_PUT(self):
@@ -81,7 +93,7 @@ class Position():
         from hitchhiker.models import Itinerary, Position
 
         active_trip = Itinerary.objects.filter(active=True)
-        
+
         # If there is no active trip return an error
         if not active_trip:
             raise Http404
@@ -95,7 +107,7 @@ class Position():
             response.write("Position could not be retrieved from request.")
             response.status_code = 400
             return response
-        
+
         # Create a new position object
         try:
             p = Position.objects.create(
