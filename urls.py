@@ -1,7 +1,7 @@
 from django.conf.urls.defaults import *
 from django.views.generic import list_detail
-from hitchhiking.hitchhiker.models import Itinerary
-from hitchhiker.views import Position
+from hitchhiker.models import Itinerary, Position, Location
+from hitchhiker.views import PositionHandler
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -21,8 +21,8 @@ urlpatterns = patterns('',
     (r'^hitchhiking/archive/$', 'hitchhiker.views.archive', {}, 'archive'),
     # past itinerary detail (object from archive)
     (r'^hitchhiking/(?P<object_id>\d+)/$', 'hitchhiker.views.past_trip', {}, 'past_trip'),
-    (r'^hitchhiking/position/$', Position()),
-    (r'^hitchhiking/(?P<itinerary_id>\d+)/gpx/$', 'hitchhiker.views.get_gpx', {}, 'gpx'),
+    (r'^hitchhiking/position/$', PositionHandler()),
+    (r'^hitchhiking/(?P<itinerary_id>\d+).gpx$', 'hitchhiker.views.get_gpx', {}, 'gpx'),
     (r'^hitchhiking/contact/', include('contact_form.urls')),
 
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 

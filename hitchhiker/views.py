@@ -51,7 +51,7 @@ def archive(request):
 def get_gpx(request, itinerary_id):
     itinerary = get_object_or_404(Itinerary, pk=itinerary_id)
     track = Position.objects.filter(itinerary=itinerary)
-    locations = null
+    locations = Location.objects.filter(position__itinerary=itinerary).order_by('position__timestamp')
 
     maxlat = track.aggregate(Max('latitude'))
     maxlon = track.aggregate(Max('longitude'))
@@ -65,11 +65,11 @@ def get_gpx(request, itinerary_id):
         'maxlat': maxlat['latitude__max'],
         'maxlon': maxlon['longitude__max'],
         'minlat': minlat['latitude__min'],
-        'minlon': minlon['longitude__min'],}
+        'minlon': minlon['longitude__min'],},
         context_instance=RequestContext(request),
         mimetype="text/plain")
 
-class Position():
+class PositionHandler():
     def __call__(self, request):
         self.request = request
 

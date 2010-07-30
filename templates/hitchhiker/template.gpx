@@ -9,8 +9,7 @@
     <bounds maxlat="{{ maxlat }}" maxlon="{{ maxlon }}" minlat="{{ minlat }}" minlon="{{ minlon }}"/>
   </metadata>
   
-  {{ if locations }}
-  {{ for location in locations }}
+  {% for location in locations %}
   <wpt lat="{{ location.latitude }}" lon="{{ location.longitude }}">
       <name>{{ location.name }}</name>
       <cmt>{{ location.comment }}</cmt>
@@ -22,10 +21,8 @@
         </gpxx:WaypointExtension>
       </extensions>
   </wpt>
-  {{ endfor }}
-  {{ endif }}
+  {% endfor %}
 
-  {{ if track }}
   <trk>
       <name>{{ itinerary.start_date }} - {{ itinerary.end_date }}</name>
     <extensions>
@@ -34,12 +31,11 @@
       </gpxx:TrackExtension>
     </extensions>
     <trkseg>
-        {{ for trackpoint in track }}
+        {% for trackpoint in track %}
         <trkpt lat="{{ trackpoint.latitude }}" lon="{{ trackpoint.longitude }}">
-            <time>{{ trackpoint.timestamp|date:"F" }}T{{ trackpoint.timestamp|date:"T" }}Z</time>
+            <time>{{ trackpoint.timestamp|date:"d-m-Y" }}T{{ trackpoint.timestamp|time:"H:i:s" }}Z</time>
         </trkpt>
-        {{ endfor }}
+        {% endfor %}
     </trkseg>
   </trk>
-  {{ endif }}
 </gpx>

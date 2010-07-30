@@ -12,7 +12,7 @@
 </video>
 <br />
 <iframe 
-    src="https://rejo.zenger.nl/topo/osm/?fn=http://mariazendre.org/media/gpx/matakuhia.gpx" 
+    src="https://rejo.zenger.nl/topo/osm/?fn=http://mariazendre.org/{% if itinerary.gpx_file %}media/gpx/{{ itinerary.gpx_file }}{% else %}hitchhiking/{{ itinerary.id }}.gpx{% endif %}" 
     width="515" height="320">
 </iframe>
 {% endblock content %}
