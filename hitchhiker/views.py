@@ -1,8 +1,9 @@
 from django.shortcuts import render_to_response, redirect, get_object_or_404
 from django.template import RequestContext
 from django.http import Http404, HttpResponse
+from django.db.models import Min, Max
 
-from hitchhiker.models import Itinerary, Position
+from hitchhiker.models import Itinerary, Position, Location
 
 def home(request):
     active_trip = Itinerary.objects.filter(active=True)
@@ -52,10 +53,19 @@ def get_gpx(request, itinerary_id):
     track = Position.objects.filter(itinerary=itinerary)
     locations = null
 
+    maxlat = track.aggregate(Max('latitude'))
+    maxlon = track.aggregate(Max('longitude'))
+    minlat = track.aggregate(Min('latitude'))
+    minlon = track.aggregate(Min('longitude'))
+
     return render_to_response('hitchhiker/template.gpx', {
         'itinerary': itinerary,
         'track': track,
-        'locations': locations,}
+        'locations': locations,
+        'maxlat': maxlat['latitude__max'],
+        'maxlon': maxlon['longitude__max'],
+        'minlat': minlat['latitude__min'],
+        'minlon': minlon['longitude__min'],}
         context_instance=RequestContext(request),
         mimetype="text/plain")
 
