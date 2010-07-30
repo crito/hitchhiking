@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<video 
+    id="video" autoplay controls
+    width="515" height="400">
+    <source src="{{ itinerary.video }}" type="video/ogg" />
+    <source src="http://www.mariazendre.org/media/video/firsttest.mp4"></source>
+    Your Browser doesn't support this video. Update to latest firefox.
+</video>
+<br />
+<iframe 
+    src="https://rejo.zenger.nl/topo/osm/?fn=http://mariazendre.org/{% if itinerary.gpx_file %}media/gpx/{{ itinerary.gpx_file }}{% else %}hitchhiking/{{ itinerary.id }}.gpx{% endif %}" 
+    width="515" height="320">
+</iframe>
+{% endblock content %}
+

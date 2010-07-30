@@ -1,21 +1,6 @@
-{% extends "base.html" %}
+{% extends "trip.html" %}
 
 {% block title %}Hitchhiking - Past Itinerary{% endblock title %}
-
-{% block content %}
-<video 
-    id="video" autoplay controls
-    width="515" height="400">
-    <source src="{{ itinerary.video }}" type="video/ogg"></source>
-    <source src="http://www.mariazendre.org/media/video/firsttest.mp4"></source>
-    Your Browser doesn't support this video. Update to latest firefox.
-</video>
-<br />
-<iframe 
-    src="https://rejo.zenger.nl/topo/osm/?fn=http://insecure.rejo.zenger.nl/gps/2009-04-18.gpx" 
-    width="515" height="320" frameborder="0">
-</iframe>
-{% endblock content %}
 
 {% block textbox %}
 <div id="textbox">
