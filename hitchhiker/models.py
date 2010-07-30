@@ -33,8 +33,9 @@ class Position(models.Model):
         return "%s/%s" % (self.longitude, self.latitude)
 
 class Location(models.Model):
+    name = models.CharField(max_length=128, blank=True)
     description = models.TextField(blank=True)
     position = models.ForeignKey(Position)
 
     def __unicode__(self):
-        return "%s/%s" % (self.position.longitude, self.position.latitude)
+        return "%s (%s/%s)" % (self.name, self.position.longitude, self.position.latitude)

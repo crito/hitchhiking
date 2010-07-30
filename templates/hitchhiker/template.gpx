@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" creator="Hitchhiking project" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+
+  <metadata>
+      <link href="http://www.mariazendre.org/hitchhiking/">
+      <text>Maria Zendrera - Hitchhiking</text>
+    </link>
+    <time>{{ itinerary.end_time }}</time>
+    <bounds maxlat="{{ maxlat }}" maxlon="{{ maxlon }}" minlat="{{ minlat }}" minlon="{{ minlon }}"/>
+  </metadata>
+  
+  {{ if locations }}
+  {{ for location in locations }}
+  <wpt lat="{{ location.latitude }}" lon="{{ location.longitude }}">
+      <name>{{ location.name }}</name>
+      <cmt>{{ location.comment }}</cmt>
+      <desc>{{ location.description }}</desc>
+      <sym>Flag, Blue</sym>
+      <extensions>
+        <gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+          <gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+        </gpxx:WaypointExtension>
+      </extensions>
+  </wpt>
+  {{ endfor }}
+  {{ endif }}
+
+  {{ if track }}
+  <trk>
+      <name>{{ itinerary.start_date }} - {{ itinerary.end_date }}</name>
+    <extensions>
+      <gpxx:TrackExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayColor>Red</gpxx:DisplayColor>
+      </gpxx:TrackExtension>
+    </extensions>
+    <trkseg>
+        {{ for trackpoint in track }}
+        <trkpt lat="{{ trackpoint.latitude }}" lon="{{ trackpoint.longitude }}">
+            <time>{{ trackpoint.timestamp|date:"F" }}T{{ trackpoint.timestamp|date:"T" }}Z</time>
+        </trkpt>
+        {{ endfor }}
+    </trkseg>
+  </trk>
+  {{ endif }}
+</gpx>
