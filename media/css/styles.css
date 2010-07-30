@@ -135,4 +135,15 @@ a:hover, a:active {
 }
 
 
+#content ul.rows {
+		list-style: none;
+		display: block;
+		width: 520px;
+}
+
+#content ul.rows li {
+		display: block;
+		float: left;
+		margin: 0 2.3em 0 0;
+}
 
