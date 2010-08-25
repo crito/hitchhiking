@@ -72,7 +72,11 @@ a:visited {
 }
 a:hover, a:active {
 	  text-decoration: none;
-	  color: #961a1a
+	  color: #971b1d;
+}
+
+a.act {
+	  color: #971b1d;
 }
 
 #box-wrap {
@@ -82,7 +86,7 @@ a:hover, a:active {
 
 #header {
 		margin-top: 25px;
-		margin-bottom: 35px;
+		margin-bottom: 25px;
 }
 
 #content {
@@ -100,26 +104,45 @@ a:hover, a:active {
 		list-style: none;
 		display: block;
 		width: 520px;
+        margin-bottom: 40px;
 }
 
 #content ul.nav li {
 		display: block;
 		float: left;
-		margin: 0 2.3em 0 0;
+/*        width: 130px;
+		margin: auto;*/
 }
 
 #content ul.nav li a {
 		text-decoration:none;
-		display:block;
-		padding-right: 0.5em;
-		font-size: 1.5em;		
+		/*padding-right: 1.4em;*/
+		font-size: 1.3em;
+        font-weight: normal;
+        color: black;
+        margin-right: 1.4em;
 }
 
-.left { float: left; }
-.right { float: left; }
+#content ul.nav li a:hover {
+    color: #971b1d;
+}
+
+#content ul.nav li a.act {
+    color: #971b1d;
+}
+
+#textbox h1 { margin-bottom: 6px; }
+#textbox p, #textbox b {
+    line-height: 110%;
+    margin-bottom: 3px;
+    text-align: left;
+}
+
+#metainfo caption {
+        text-align: left;
+}
 
 #metainfo caption h1 {
-		text-align: right;
         font-weight: bold;
 }
 #metainfo tbody {
@@ -127,23 +150,49 @@ a:hover, a:active {
 }
 #metainfo th {
 		font-weight: bold;
-        margin-right: 0.2em;
+        padding-right: 0.4em;
+        text-align: left;
 }
 
 #metainfo tr.even {
-		background-color: #dedede;
+/*		background-color: #dedede;*/
 }
 
-
-#content ul.rows {
-		list-style: none;
-		display: block;
-		width: 520px;
+#listing {
+    display: table;
+    width: 100%;
+    padding: 0;
+    margin: auto; 
+    white-space:nowrap;
+    border-collapse:collapse;  
 }
 
-#content ul.rows li {
-		display: block;
-		float: left;
-		margin: 0 2.3em 0 0;
+#listing div.row {
+    display: table-row;
+    white-space:nowrap;
 }
 
+#listing div.cell {
+    display: table-cell;
+}
+
+#listing div.cell img {
+    width: 140px;
+}
+
+#listing div.spacer {
+    clear: both;
+}
+
+#listing div.cell table.archive_meta {
+    width: 140px;
+    font-size: 10px;
+}
+
+#listing div.cell table.archive_meta td {
+    line-height: 120%;
+}
+
+#listing div.cell table.archive_meta th {
+    text-align: left;
+}

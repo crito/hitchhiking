@@ -4,6 +4,8 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
+    ('Christo', 'crito@cryptodrunks.net'),
+    ('Maria', 'mariazendre@gmail.com'),
     # ('Your Name', 'your_email@domain.com'),
 )
 
@@ -65,6 +67,15 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
 #     'django.template.loaders.eggs.Loader',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+"django.contrib.auth.context_processors.auth",
+"django.core.context_processors.debug",
+"django.core.context_processors.i18n",
+"django.core.context_processors.media",
+"django.contrib.messages.context_processors.messages",
+    'django.core.context_processors.request'
 )
 
 MIDDLEWARE_CLASSES = (

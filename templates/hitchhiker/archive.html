@@ -3,63 +3,58 @@
 {% block title %}Hitchhiking - Archive{% endblock title %}
 
 {% block content %}
-<ul class="rows">
+<div id="listing">
 {% for t1, t2, t3 in all_trips %}
-<li>
+<div class="row">
     {% if t1 %}
-    <span class="cell">
-        <a href="http://mariazendre.org/hitchhiking/{{ t1.id }}/"><img src="{{ t1.poster }}" alt="t1 poster image" /></a>
-        <table id="archive_meta">
+    <div class="cell">
+        <a class="poster" href="http://mariazendre.org/hitchhiking/{{ t1.id }}/"><img src="{{ t1.poster }}" alt="t1 poster image" /></a>
+        <table class="archive_meta">
             <tr>
-                <th>Start</th>
-                <td>{{ t1.start_date|date:"d M Y" }} {{ t1.start_date|time:"H:i" }}<br />
-                    {{ t1.start }}</td>
+                <th>Start:</th>
+                <td>{{ t1.start }}<br />{{ t1.start_date|date:"d-m-Y" }} {{ t1.start_date|time:"H:i" }}</td>
             </tr>
             <tr>
-                <th>End</th>
-                <td>{{ t1.end_date|date:"d M Y" }} {{ t1.end_date|time:"H:i" }}<br />
-                    {{ t1.end }}</td>
+                <th>End:</th>
+                <td>{{ t1.destination }}<br />{{ t1.end_date|date:"d-m-Y" }} {{ t1.end_date|time:"H:i" }}</td>
             </tr>
         </table>
-    </span>
+    </div>
     {% endif %}
     {% if t2 %}
-    <span class="cell">
-        <a href="http://mariazendre.org/hitchhiking/{{ t2.id }}/"><img src="{{ t2.poster }}" alt="t1 poster image" /></a>
-        <table id="archive_meta">
+    <div class="cell">
+        <a class="poster" href="http://mariazendre.org/hitchhiking/{{ t2.id }}/"><img src="{{ t2.poster }}" alt="t1 poster image" /></a>
+        <table class="archive_meta">
             <tr>
-                <th>Start</th>
-                <td>{{ t2.start_date|date:"d M Y" }} {{ t2.start_date|time:"H:i" }}<br />
-                    {{ t2.start }}</td>
+                <th>Start:</th>
+                <td>{{ t2.start }}<br />{{ t2.start_date|date:"d-m-Y" }} {{ t2.start_date|time:"H:i" }}</td>
             </tr>
             <tr>
-                <th>End</th>
-                <td>{{ t2.end_date|date:"d M Y" }} {{ t2.end_date|time:"H:i" }}<br />
-                    {{ t2.end }}</td>
+                <th>End:</th>
+                <td>{{ t2.destination }}<br />{{ t2.end_date|date:"d-m-Y" }} {{ t2.end_date|time:"H:i" }}</td>
             </tr>
         </table>
-    </span>
+    </div>
     {% endif %}
     {% if t3 %}
-    <span class="cell">
-        <a href="http://mariazendre.org/hitchhiking/{{ t3.id }}/"><img src="{{ t3.poster }}" alt="t1 poster image" /></a>
-        <table id="archive_meta">
+    <div class="cell">
+        <a class="poster" href="http://mariazendre.org/hitchhiking/{{ t3.id }}/"><img src="{{ t3.poster }}" alt="t1 poster image" /></a>
+        <table class="archive_meta">
             <tr>
-                <th>Start</th>
-                <td>{{ t3.start_date|date:"d M Y" }} {{ t3.start_date|time:"H:i" }}<br />
-                    {{ t3.start }}</td>
+                <th>Start:</th>
+                <td>{{ t3.start }}<br />{{ t3.start_date|date:"d-m-Y" }} {{ t3.start_date|time:"H:i" }}</td>
             </tr>
             <tr>
-                <th>End</th>
-                <td>{{ t3.end_date|date:"d M Y" }} {{ t3.end_date|time:"H:i" }}<br />
-                    {{ t3.end }}</td>
+                <th>End:</th>
+                <td>{{ t3.destination }}<br />{{ t3.end_date|date:"d-m-Y" }} {{ t3.end_date|time:"H:i" }}</td>
             </tr>
         </table>
-    </span>
+    </div>
     {% endif %}
-</li>
+</div> <!-- div row -->
+<div class="spacer">&nbsp;</div>
 {% endfor %}
-</ul>
+</div> <!-- div listing -->
 {% endblock content %}
 
 {% block textbox %}

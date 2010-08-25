@@ -4,22 +4,32 @@
 
 {% block textbox %}
 <div id="textbox">
+    <h1>Current Itinerary:</h1>
+    <p><b>Start:</b> {{ itinerary.start }}
+                    {{ itinerary.start_date|date:"d-m-Y" }} {{ itinerary.start_date|date:"H:i" }}</p>
+          <p><b>Destination:</b> {{ itinerary.destination }}</p>    
+    <!--
+    <p><span class="th">Start:</span><span class="td">{{ itinerary.start }}<br />
+                {{ itinerary.start_date }}</span></p><p>
+        <span class="th">Destination:</span><span class="td">{{ itinerary.destination }}</span>
+    </p>-->
+    <!--
     <table id="metainfo">
-        <caption>Current Itinerary</caption>
+        <caption>Current Itinerary:</caption>
         <tbody>
-            <tr class="even">
                 <th>Time Running</th>
                 <td>{{ itinerary.start_date|timesince }}</td>
             </tr>
             <tr class="odd">
-                <th>Start</th>
-                <td>{{ itinerary.start }}</td>
+                <th>Start:</th>
+                <td>{{ itinerary.start }}<br />
+                {{ itinerary.start_date }}</td>
             </tr>
             <tr class="even">
-                <th>Destination</th>
+                <th>Destination:</th>
                 <td>{{ itinerary.destination }}</td>
             </tr>
         </tbody>
-    </table>
+    </table>-->
 </div>
 {% endblock textbox %}

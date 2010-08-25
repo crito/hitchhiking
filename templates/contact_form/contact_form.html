@@ -3,8 +3,7 @@
 {% block title %}Hitchhiking - Contact{% endblock %}
 
 {% block content %}
-<h1>Contact</h1>
-<form action="/hitchhiking/contact/" method="post">
+<form action="/hitchhiking/contact/" method="post">{% csrf_token %}
 {{ form.as_p }}
 <input type="submit" value="Submit" />
 </form>
