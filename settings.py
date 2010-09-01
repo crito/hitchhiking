@@ -10,6 +10,12 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
+DEFAULT_FROM_EMAIL = "contact@mariazendre.org"
+
+EMAIL_HOST = 'localhost'
+#EMAIL_HOST_USER = ''
+#EMAIL_HOST_PASSWORD = '@Has45mall+-'
+#EMAIL_USE_TLS = True
 
 DATABASES = {
     'default': {

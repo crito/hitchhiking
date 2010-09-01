@@ -1,1 +1,1 @@
-Mail from http://mariazendre.org/hitchhiking/
+{{ name }} is interested in your hitchhiking project. 

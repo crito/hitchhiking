@@ -8,20 +8,12 @@
         <caption>Past Itinerary</caption>
         <tbody>
             <tr class="even">
-                <th>When</th>
-                <td>{{ itinerary.start_date|date:"d M Y" }} {{ itinerary.start_date|time:"H:i" }}</td>
-            </tr>
-            <tr class="odd">
                 <th>Start</th>
-                <td>{{ itinerary.start }}</td>
+                <td>{{ itinerary.start }}<br />{{ itinerary.start_date|date:"d-m-Y" }} {{ itinerary.start_date|time:"H:i" }}</td>
             </tr>
             <tr class="even">
-                <th>Duration</th>
-                <td>{{ itinerary.start_date|timesince:itinerary.end_date }}</td>
-            </tr>
-            <tr class="odd">
-                <th>Destination</th>
-                <td>{{ itinerary.destination }}</td>
+                <th>End</th>
+                <td>{{ itinerary.destination }}<br />{{ itinerary.start_date|date:"d-m-Y" }} {{ itinerary.end_date|time:"H:i" }}</td>
             </tr>
         </tbody>
     </table>

@@ -4,7 +4,10 @@
 
 {% block content %}
 <form action="/hitchhiking/contact/" method="post">{% csrf_token %}
-{{ form.as_p }}
+<label for="id_name">Your name:</label> <input id="id_name" type="text" class="required" name="name" maxlength="100" /><br /><br />
+<label for="id_email">Your email address:</label> <input id="id_email" type="text" class="required" name="email" maxlength="200" />
+<br /><br />
+<label for="id_body">Your message:</label> <textarea id="id_body" rows="10" cols="40" name="body" class="required"></textarea><br />
 <input type="submit" value="Submit" />
 </form>
 

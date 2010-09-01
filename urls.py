@@ -17,6 +17,7 @@ urlpatterns = patterns('',
 
     # current itinerary (or redirect to about)
     (r'^hitchhiking/$', 'hitchhiker.views.home', {}, 'home'),
+    (r'^hitchhiking/map/$', 'hitchhiker.views.map', {}, 'map'),
     # past itineraries (archive)
     (r'^hitchhiking/archive/$', 'hitchhiker.views.archive', {}, 'archive'),
     # past itinerary detail (object from archive)

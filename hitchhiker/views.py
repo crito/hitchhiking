@@ -14,6 +14,15 @@ def home(request):
     else:
         return redirect('/hitchhiking/about/')
 
+def map(request):
+    active_trip = Itinerary.objects.filter(active=True)
+    if active_trip:
+        return render_to_response('hitchhiker/map.html', {
+            'itinerary': active_trip[0]},
+            context_instance=RequestContext(request))
+    else:
+        return redirect('/hitchhiking/about/')
+
 def past_trip(request, object_id):
     past_trip = get_object_or_404(Itinerary, pk=object_id)
 
