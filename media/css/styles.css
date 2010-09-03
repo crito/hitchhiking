@@ -96,8 +96,15 @@ a.act {
 
 #textbox {
 		width: 194px;
-		margin-top: 255px;
+		margin-top: 123px;
 		float: left;
+}
+
+#kofferimg {
+    position: relative;
+    left: -60px;
+    top: 40px;
+    width: 150px;
 }
 
 #content ul.nav {

@@ -122,4 +122,5 @@ INSTALLED_APPS = (
     #'debug_toolbar',
     'contact_form',
     'blog',
+    'upload',
 )
