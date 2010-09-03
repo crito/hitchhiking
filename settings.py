@@ -121,4 +121,5 @@ INSTALLED_APPS = (
     'hitchhiking.hitchhiker',
     #'debug_toolbar',
     'contact_form',
+    'blog',
 )

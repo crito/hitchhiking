@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" creator="Hitchhiking project" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+
+  <metadata>
+      <link href="http://www.mariazendre.org/hitchhiking/">
+      <text>Maria Zendrera - Hitchhiking</text>
+    </link>
+    <time></time>
+    <bounds maxlat="None" maxlon="None" minlat="None" minlon="None"/>
+  </metadata>
+  
+  
+
+  <trk>
+      <name>Sept. 1, 2010, 7:57 p.m. - None</name>
+    <extensions>
+      <gpxx:TrackExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayColor>Red</gpxx:DisplayColor>
+      </gpxx:TrackExtension>
+    </extensions>
+    <trkseg>
+        
+    </trkseg>
+  </trk>
+</gpx>

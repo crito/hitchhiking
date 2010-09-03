@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>All Posts</h1>
+{% for post in object_list %}
+<h2>{{ post.title }}</h2>
+<p>{{ post.body }}</p>
+<small>Belongs to {{ post.itinerary }}.</small>
+{% endfor %}
+{% endblock content %}
+

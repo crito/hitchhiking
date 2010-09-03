@@ -25,6 +25,7 @@ urlpatterns = patterns('',
     (r'^hitchhiking/position/$', PositionHandler()),
     (r'^hitchhiking/(?P<itinerary_id>\d+).gpx$', 'hitchhiker.views.get_gpx', {}, 'gpx'),
     (r'^hitchhiking/contact/', include('contact_form.urls')),
+    (r'^hitchhiking/blog/', include('blog.urls')),
 
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
     # to INSTALLED_APPS to enable admin documentation:
