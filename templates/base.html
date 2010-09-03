@@ -26,6 +26,8 @@
                     <li><a class="{% ifequal request.path "/hitchhiking/contact/" %}act{% else %}{% ifequal request.path "/hitchhiking/contact/sent/" %}act{% endifequal %}{% endifequal %}" href="http://mariazendre.org/hitchhiking/contact/">Contact</a></li>
                 </ul>
                 {% endblock %}
+                {% block video %}
+                {% endblock %}
                 {% block content %}
                 {% endblock %}
         <div id="footer">

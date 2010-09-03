@@ -20,8 +20,9 @@ def map(request):
         return render_to_response('hitchhiker/map.html', {
             'itinerary': active_trip[0]},
             context_instance=RequestContext(request))
-    else:
-        return redirect('/hitchhiking/about/')
+    
+    return render_to_response('hitchhiker/map2.html', {},
+            context_instance=RequestContext(request))
 
 def past_trip(request, object_id):
     past_trip = get_object_or_404(Itinerary, pk=object_id)

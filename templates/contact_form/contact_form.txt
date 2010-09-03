@@ -1,3 +1,6 @@
-{{ name }} sent you a message. You can respond to {{ email }}
+!!!!DON'T PRESS REPLY. IT WON'T WORK. THIS EMAIL WAS SENT OVER YOUR WEBPAGE.!!!!
+{{ name }} sent you a message (see below). You can respond to {{ email }}
 
+The message sent:
+--------------------------------------------------------------------------------
 {{ body }}

@@ -2,6 +2,17 @@
 
 {% block title %}Hitchhiking - Past Itinerary{% endblock title %}
 
+{% block video %}
+
+<video 
+    id="video" autoplay controls
+    width="515" height="400">
+    <source src="{{ itinerary.video }}" type="video/ogg" />
+    Your Browser doesn't support this video. Update to latest firefox.
+</video>
+<br />
+{% endblock %}
+
 {% block textbox %}
 <div id="textbox">
     <table id="metainfo">
@@ -19,3 +30,10 @@
     </table>
 </div>
 {% endblock textbox %}
+
+{% block content %}
+<iframe id="map_frame_norefresh" 
+    src="https://rejo.zenger.nl/topo/osm/?fn=http://mariazendre.org/{% if itinerary.gpx_file %}media/gpx/{{ itinerary.gpx_file }}{% else %}hitchhiking/{{ itinerary.id }}.gpx{% endif %}" 
+    width="515" height="320">
+</iframe>
+{% endblock content %}
