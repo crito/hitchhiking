@@ -3,19 +3,20 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
         <title>{% block title %}Hitchhiking{% endblock %}</title>
-        <link rel="stylesheet" type="text/css" href="http://www.mariazendre.org/media/css/styles.css" />
-        <script language="JavaScript" type="text/javascript">
-            function msgRefresh () {
-                var f = document.getElementById('map_frame');
-                f.src = f.src
-                window.setTimeout('msgRefresh()',60000);
-            }
-        </script>
+        <link rel="stylesheet" type="text/css" href="http://media.mariazendre.org/media/css/styles.css" />
+        <script language="JavaScript" type="text/javascript" src="http://media.mariazendre.org/media/js/lib/jquery.js"></script>
+        <script src="http://openlayers.org/api/OpenLayers.js"></script>
+        <script type="text/javascript" charset="utf-8" src="http://mapstraction.googlecode.com/svn/trunk/source/mxn.js?(openlayers)"></script>
+        <script language="JavaScript" type="text/javascript" src="http://media.mariazendre.org/media/js/src/hitchhiking.js"></script>
+
+        {% block extra-js %}
+        {% endblock %}
+
     </head>
-    <body onLoad='msgRefresh()'>
+    <body onLoad='initialize();'>
         <div id="box-wrap">
             <div id="header">
-                <a href="http://mariazendre.org/hitchhiking/"><img src="/media/img/logo.gif" width="348" height="43" alt="Hitchhiking" /></a>
+                <a href="http://mariazendre.org/hitchhiking/"><img src="http://media.mariazendre.org/media/img/logo.gif" width="348" height="43" alt="Hitchhiking" /></a>
             </div> <!-- div id="header" -->
             <div id="content">
                 {% block navigation %}
@@ -33,16 +34,16 @@
         <div id="footer">
             <p>
             <br />
-            <img src="/media/img/sep.gif" height="1px" width="520px" /><br />
+            <img src="http://media.mariazendre.org/media/img/sep.gif" height="1px" width="520px" /><br />
             <b>Sponsors:</b><br />
-            <a href="http://www.30loops.net/"><img src="/media/img/30loops.jpg" height="55px" width="135px" /></a>&nbsp;&nbsp;&nbsp;
-            <a href="http://www.planv.eu/"><img src="/media/img/planv.jpg" height="29px" width="135px" /></a>&nbsp;&nbsp;&nbsp;
-            <a href="http://www.amsterdamsfondsvoordekunst.nl/"><img src="/media/img/afk.jpg" height="45px" width="135px" /></a>
+            <a href="http://www.30loops.net/"><img src="http://media.mariazendre.org/media/img/30loops.jpg" height="55px" width="135px" /></a>&nbsp;&nbsp;&nbsp;
+            <a href="http://www.planv.eu/"><img src="http://media.mariazendre.org/media/img/planv.jpg" height="29px" width="135px" /></a>&nbsp;&nbsp;&nbsp;
+            <a href="http://www.amsterdamsfondsvoordekunst.nl/"><img src="http://media.mariazendre.org/media/img/afk.jpg" height="45px" width="135px" /></a>
             </p>
         </div> <!-- div footer -->
             </div> <!-- div id="content" -->
             <div id="kofferimg">
-                <img src="http://mariazendre.org/media/img/koffer.jpg" width="140px" height="132px" />
+                <img src="http://media.mariazendre.org/media/img/koffer.jpg" width="140px" height="132px" />
             </div> <!-- div id="kofferimg" -->
             {% block textbox %}
             {% endblock %}

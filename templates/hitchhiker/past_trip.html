@@ -1,7 +1,25 @@
 {% extends "hitchhiker/trip.html" %}
 
 {% block title %}Hitchhiking - Past Itinerary{% endblock title %}
-
+{% block extra-js %}
+<script type="text/javascript">
+    function initialize() {
+    var lat = 0;
+    var lon = 0;
+    mapstraction = new mxn.Mapstraction('real_map','openlayers');
+    if (mapstraction) {
+        mapstraction.setCenterAndZoom(new mxn.LatLonPoint(lat,lon), 13);
+        mapstraction.addControls({
+            pan: false,
+            zoom: false,
+            map_type: false,
+            overview: false,
+            scale: false,
+        });
+    }
+    }
+</script>
+{% endblock extra-js %}
 {% block video %}
 
 <video 
@@ -10,6 +28,7 @@
     <source src="{{ itinerary.video }}" type="video/ogg" />
     Your Browser doesn't support this video. Update to latest firefox.
 </video>
+<small>If you don't see a video click <a href="{{ itinerary.video }}">here</a> to download it.</small>
 <br />
 {% endblock %}
 
@@ -32,8 +51,5 @@
 {% endblock textbox %}
 
 {% block content %}
-<iframe id="map_frame_norefresh" 
-    src="https://rejo.zenger.nl/topo/osm/?fn=http://mariazendre.org/{% if itinerary.gpx_file %}media/gpx/{{ itinerary.gpx_file }}{% else %}hitchhiking/{{ itinerary.id }}.gpx{% endif %}" 
-    width="515" height="320">
-</iframe>
+<div id="real_map"></div>
 {% endblock content %}
