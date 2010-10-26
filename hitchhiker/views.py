@@ -62,17 +62,23 @@ def archive(request):
 
 def new_map(request):
     '''Send gps positions in a certain interval.'''
-    return render_to_response('hitchhiker/new_map.html', {},
+    active_trip = Itinerary.objects.get(id=16)
+    if active_trip:
+        return render_to_response('hitchhiker/new_map.html', {
+            'itinerary': active_trip},
             context_instance=RequestContext(request))
+    else:
+        return redirect('/hitchhiking/about/')
 
-def get_points(request, itinerary_id=None):
-    if not itinerary_id:
-        itinerary_id = 5
-
+def get_points(request, itinerary_id):
     itinerary = get_object_or_404(Itinerary, pk=itinerary_id)
     track = Position.objects.filter(itinerary=itinerary)
     
-    data = serializers.serialize("json", track)
+    if request.method == 'POST':
+        last_timestamp = request.POST['last_timestamp']
+        data = serializers.serialize("json", track.filter(timestamp__gt=last_timestamp)[:10])
+    elif request.method == 'GET':
+        data = serializers.serialize("json", track[:10])
 
     return HttpResponse([data], mimetype="text/plain")
 
