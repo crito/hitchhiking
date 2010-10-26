@@ -78,7 +78,7 @@ def get_points(request, itinerary_id):
         last_timestamp = request.POST['last_timestamp']
         data = serializers.serialize("json", track.filter(timestamp__gt=last_timestamp)[:10])
     elif request.method == 'GET':
-        data = serializers.serialize("json", track[:10])
+        data = serializers.serialize("json", track)
 
     return HttpResponse([data], mimetype="text/plain")
 

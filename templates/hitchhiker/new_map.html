@@ -11,6 +11,14 @@ $(document).ready(function () {
 {% endblock extra-js %}
 {% block on_load %}{% endblock %}
 {% block video %}
+<video 
+    id="video" autoplay controls
+    width="515" height="400">
+    <source src="{{ itinerary.video }}" type="video/ogg" />
+    Your Browser doesn't support this video. Update to latest firefox.
+</video>
+<small>If you don't see a video click <a href="{{ itinerary.video }}">here</a> to download it.</small>
+<br />
 {% endblock %}
 
 {% block textbox %}
