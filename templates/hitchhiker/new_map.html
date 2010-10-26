@@ -4,9 +4,13 @@
 {% block extra-js %}
 <script language="JavaScript" type="text/javascript" src="http://media.mariazendre.org/media/js/src/hitchhiking.js"></script>
 <script type="text/javascript">
+$(document).ready(function () {
+    hike.log("ready handler");
+    hike.map(16);
+});
 </script>
 {% endblock extra-js %}
-{% block on_load %} onLoad='hike.map(16)'{% endblock %}
+{% block on_load %}{% endblock %}
 {% block video %}
 {% endblock %}
 
