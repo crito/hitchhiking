@@ -20,6 +20,9 @@ urlpatterns = patterns('',
     (r'^hitchhiking/map/$', 'hitchhiker.views.map', {}, 'map'),
     # past itineraries (archive)
     (r'^hitchhiking/archive/$', 'hitchhiker.views.archive', {}, 'archive'),
+    (r'^hitchhiking/new_map/$', 'hitchhiker.views.new_map', {}, 'new_map'),
+    (r'^hitchhiking/points/$', 'hitchhiker.views.get_points', {}, 'get_points'),
+    (r'^hitchhiking/points/(?P<itinerary_id>\d+)/$', 'hitchhiker.views.get_points', {}, 'get_points_itinerary'),
     # past itinerary detail (object from archive)
     (r'^hitchhiking/(?P<object_id>\d+)/$', 'hitchhiker.views.past_trip', {}, 'past_trip'),
     (r'^hitchhiking/position/$', PositionHandler()),

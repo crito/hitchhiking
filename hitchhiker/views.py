@@ -4,6 +4,8 @@ from django.http import Http404, HttpResponse
 from django.db.models import Min, Max
 
 from hitchhiker.models import Itinerary, Position, Location
+from django.core import serializers
+import simplejson as json
 
 def home(request):
     active_trip = Itinerary.objects.filter(active=True)
@@ -58,6 +60,22 @@ def archive(request):
         'all_trips': trips},
         context_instance=RequestContext(request))
 
+def new_map(request):
+    '''Send gps positions in a certain interval.'''
+    return render_to_response('hitchhiker/new_map.html', {},
+            context_instance=RequestContext(request))
+
+def get_points(request, itinerary_id=None):
+    if not itinerary_id:
+        itinerary_id = 5
+
+    itinerary = get_object_or_404(Itinerary, pk=itinerary_id)
+    track = Position.objects.filter(itinerary=itinerary)
+    
+    data = serializers.serialize("json", track)
+
+    return HttpResponse([data], mimetype="text/plain")
+
 def get_gpx(request, itinerary_id):
     itinerary = get_object_or_404(Itinerary, pk=itinerary_id)
     track = Position.objects.filter(itinerary=itinerary)
@@ -93,8 +111,6 @@ class PositionHandler():
         return callback()
 
     def do_GET(self):
-        from django.core import serializers
-        import simplejson as json
         from hitchhiker.models import Itinerary, Position
 
         active_trip = Itinerary.objects.filter(active=True)

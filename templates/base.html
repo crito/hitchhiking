@@ -13,7 +13,7 @@
         {% endblock %}
 
     </head>
-    <body onLoad='initialize();'>
+    <body{% block on_load %}{% endblock %}>
         <div id="box-wrap">
             <div id="header">
                 <a href="http://mariazendre.org/hitchhiking/"><img src="http://media.mariazendre.org/media/img/logo.gif" width="348" height="43" alt="Hitchhiking" /></a>

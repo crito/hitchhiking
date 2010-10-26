@@ -1,0 +1,18 @@
+{% extends "hitchhiker/trip.html" %}
+
+{% block title %}Hitchhiking - Past Itinerary{% endblock title %}
+{% block extra-js %}
+<script language="JavaScript" type="text/javascript" src="http://media.mariazendre.org/media/js/src/hitchhiking.js"></script>
+<script type="text/javascript">
+</script>
+{% endblock extra-js %}
+{% block on_load %} onLoad='hike.map(16)'{% endblock %}
+{% block video %}
+{% endblock %}
+
+{% block textbox %}
+{% endblock textbox %}
+
+{% block content %}
+<div id="real_map"></div>
+{% endblock content %}

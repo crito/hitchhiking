@@ -2,24 +2,11 @@
 
 {% block title %}Hitchhiking - Past Itinerary{% endblock title %}
 {% block extra-js %}
+<script language="JavaScript" type="text/javascript" src="http://media.mariazendre.org/media/js/src/hitchhiking.js"></script>
 <script type="text/javascript">
-    function initialize() {
-    var lat = 0;
-    var lon = 0;
-    mapstraction = new mxn.Mapstraction('real_map','openlayers');
-    if (mapstraction) {
-        mapstraction.setCenterAndZoom(new mxn.LatLonPoint(lat,lon), 13);
-        mapstraction.addControls({
-            pan: false,
-            zoom: false,
-            map_type: false,
-            overview: false,
-            scale: false,
-        });
-    }
-    }
 </script>
 {% endblock extra-js %}
+{% block on_load %} onLoad='hike.map(16)'{% endblock %}
 {% block video %}
 
 <video 
