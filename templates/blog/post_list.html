@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div id="content">
 {% for post in object_list %}
 <h1><a href="{% url post_detail slug=post.slug %}">{{ post.title }}</a></h1>
-<p>{{ post.body }}</p>
+<p>{{ post.body|truncatewords:80 }}</p>
 <hr>
 {% endfor %}
+</div>
 {% endblock content %}
 {% comment %}
 {% block textbox %}

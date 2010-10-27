@@ -82,6 +82,21 @@ def get_points(request, itinerary_id):
 
     return HttpResponse([data], mimetype="text/plain")
 
+def get_points2(request, itinerary_id):
+    itinerary = get_object_or_404(Itinerary, pk=itinerary_id)
+    track = Position.objects.filter(itinerary=itinerary)
+     
+    if request.method == 'POST':
+        last_timestamp = request.POST['last_timestamp']
+        if "None" not in last_timestamp:
+            data = serializers.serialize("json", track.filter(timestamp__gt=last_timestamp)[:10])
+        else: 
+            data = serializers.serialize("json", track[:10])
+    elif request.method == 'GET':
+        data = serializers.serialize("json", track)
+
+    return HttpResponse([data], mimetype="text/plain")
+
 def get_gpx(request, itinerary_id):
     itinerary = get_object_or_404(Itinerary, pk=itinerary_id)
     track = Position.objects.filter(itinerary=itinerary)
