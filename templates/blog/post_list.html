@@ -1,11 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>All Posts</h1>
 {% for post in object_list %}
-<h2>{{ post.title }}</h2>
+<h1><a href="{% url post_detail slug=post.slug %}">{{ post.title }}</a></h1>
 <p>{{ post.body }}</p>
-<small>Belongs to {{ post.itinerary }}.</small>
+<hr>
 {% endfor %}
 {% endblock content %}
-
+{% comment %}
+{% block textbox %}
+<div id="textbox">
+<small>Belongs to {{ post.itinerary }}.</small>
+</div>
+{% endblock %}
+{% endcomment %}

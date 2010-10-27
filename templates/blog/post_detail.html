@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ object.title }}</h1>
+<p>{{ object.body }}</p>
+{% endblock content %}
+{% block textbox %}
+<div id="textbox">
+<small>Belongs to <a href="{% url past_trip object_id=object.itinerary.id %}">{{ object.itinerary }}</a>.</small>
+</div>
+{% endblock %}
