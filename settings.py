@@ -114,6 +114,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     'django.contrib.admindocs',
+    'django.contrib.markup',
     'gunicorn',
     'south',
     'django_extensions',
@@ -123,4 +124,5 @@ INSTALLED_APPS = (
     'contact_form',
     'blog',
     'upload',
+    #'upload_ng',
 )

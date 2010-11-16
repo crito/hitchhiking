@@ -2,6 +2,14 @@
 
 {% block title %}Hitchhiking - Current Itinerary{% endblock title %}
 
+{% block extra-js %}
+<script language="JavaScript" type="text/javascript" src="http://media.mariazendre.org/media/js/src/hitchhiking.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+    hike.map({{ itinerary.id }}, true, 15000);
+});
+</script>
+{% endblock extra-js %}
 {% block textbox %}
 <div id="textbox">
     <h1>Current Itinerary:</h1>
@@ -34,4 +42,6 @@
 </div>
 {% endblock textbox %}
 
-
+{% block content %}
+<div id="real_map"></div>
+{% endblock content %}

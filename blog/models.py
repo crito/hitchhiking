@@ -19,6 +19,7 @@ class Post(models.Model):
     modified = models.DateTimeField(auto_now=True)
     publish = models.DateTimeField(default=datetime.datetime.now, blank=True, null=True)
     itinerary = models.ForeignKey(Itinerary, blank=True, null=True)
+    #attachments = generic.GenericRelation(Attachment)
 
     class Meta:
         verbose_name = 'post'

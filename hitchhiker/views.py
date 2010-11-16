@@ -4,6 +4,7 @@ from django.http import Http404, HttpResponse
 from django.db.models import Min, Max
 
 from hitchhiker.models import Itinerary, Position, Location
+from blog.models import Post
 from django.core import serializers
 import simplejson as json
 
@@ -28,9 +29,11 @@ def map(request):
 
 def past_trip(request, object_id):
     past_trip = get_object_or_404(Itinerary, pk=object_id)
+    posts = Post.objects.filter(itinerary=past_trip)
 
     return render_to_response('hitchhiker/past_trip.html', {
-            'itinerary': past_trip},
+            'itinerary': past_trip,
+            'posts': posts},
             context_instance=RequestContext(request))
 
 def archive(request):
@@ -70,28 +73,28 @@ def new_map(request):
     else:
         return redirect('/hitchhiking/about/')
 
-def get_points(request, itinerary_id):
-    itinerary = get_object_or_404(Itinerary, pk=itinerary_id)
-    track = Position.objects.filter(itinerary=itinerary)
+#def get_points(request, itinerary_id):
+#    itinerary = get_object_or_404(Itinerary, pk=itinerary_id)
+#    track = Position.objects.filter(itinerary=itinerary)
     
-    if request.method == 'POST':
-        last_timestamp = request.POST['last_timestamp']
-        data = serializers.serialize("json", track.filter(timestamp__gt=last_timestamp)[:10])
-    elif request.method == 'GET':
-        data = serializers.serialize("json", track)
+#    if request.method == 'POST':
+#        last_timestamp = request.POST['last_timestamp']
+#        data = serializers.serialize("json", track.filter(timestamp__gt=last_timestamp)[:10])
+#    elif request.method == 'GET':
+#        data = serializers.serialize("json", track)
+#
+#    return HttpResponse([data], mimetype="text/plain")
 
-    return HttpResponse([data], mimetype="text/plain")
-
-def get_points2(request, itinerary_id):
+def get_points(request, itinerary_id):
     itinerary = get_object_or_404(Itinerary, pk=itinerary_id)
     track = Position.objects.filter(itinerary=itinerary)
      
     if request.method == 'POST':
         last_timestamp = request.POST['last_timestamp']
         if "None" not in last_timestamp:
-            data = serializers.serialize("json", track.filter(timestamp__gt=last_timestamp)[:10])
+            data = serializers.serialize("json", track.filter(timestamp__gt=last_timestamp))
         else: 
-            data = serializers.serialize("json", track[:10])
+            data = serializers.serialize("json", track)
     elif request.method == 'GET':
         data = serializers.serialize("json", track)
 
