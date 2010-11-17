@@ -17,30 +17,27 @@ $(document).ready(function () {
 {% block video %}
   <div class="video-js-box">
     <!-- Using the Video for Everybody Embed Code http://camendesign.com/code/video_for_everybody -->
-    <video class="video-js" width="515" height="400" controls preload poster="http://video-js.zencoder.com/oceans-clip.png">
+    <video class="video-js" width="515" height="400" controls preload poster="http://media.mariazendre.org/media/poster/{{ itinerary.id }}.png">
+      <source src="http://media.mariazendre.org/media/videos/itinerary{{ itinerary.id }}.m4v" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
 <!--
-      <source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
       <source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm; codecs="vp8, vorbis"'>
 -->
-      <source src="{{ itinerary.video }}" type='video/ogg; codecs="theora, vorbis"'>
+      <source src="http://media.mariazendre.org/media/videos/itinerary{{ itinerary.id }}.ogv" type='video/ogg; codecs="theora, vorbis"'>
       <!-- Flash Fallback. Use any flash video player here. Make sure to keep the vjs-flash-fallback class. -->
       <object class="vjs-flash-fallback" width="515" height="400" type="application/x-shockwave-flash"
         data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf">
         <param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" />
         <param name="allowfullscreen" value="true" />
-        <param name="flashvars" value='config={"playlist":["http://video-js.zencoder.com/oceans-clip.png", {"url": "{{ itinerary.video }}","autoPlay":false,"autoBuffering":true}]}' />
+        <param name="flashvars" value='config={"playlist":["http://media.mariazendre.org/media/poster/{{ itinerary.id }}.png", {"url": "http://media.mariazendre.org/media/videos/{{ itinerary.id }}.m4v","autoPlay":false,"autoBuffering":true}]}' />
         <!-- Image Fallback. Typically the same as the poster image. -->
-        <img src="http://video-js.zencoder.com/oceans-clip.png" width="515" height="400" alt="Poster Image"
+        <img src="http://media.mariazendre.org/media/poster/{{ itinerary.id }}.png" width="515" height="400" alt="Poster Image"
           title="No video playback capabilities." />
       </object>
     </video>
     <!-- Download links provided for devices that can't play video in the browser. -->
     <p class="vjs-no-video"><strong>Download Video:</strong>
-      <a href="http://video-js.zencoder.com/oceans-clip.mp4">MP4</a>,
-      <a href="http://video-js.zencoder.com/oceans-clip.webm">WebM</a>,
-      <a href="http://video-js.zencoder.com/oceans-clip.ogv">Ogg</a><br>
-      <!-- Support VideoJS by keeping this link. -->
-      <a href="http://videojs.com">HTML5 Video Player</a> by VideoJS
+      <a href="http://media.mariazendre.org/media/videos/itinerary{{ itinerary.id }}.m4v">MP4</a>,
+      <a href="http://media.mariazendre.org/media/videos/itinerary{{ itinerary.id }}.ogv">OGG</a>,
     </p>
   </div>
   <!-- End VideoJS -->
