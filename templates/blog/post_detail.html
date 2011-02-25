@@ -5,7 +5,9 @@
 <div id="content">
 <h1>{{ object.title }}</h1>
 <small>Posted on {{ object.publish }}</small>
+{% autoescape off %}
 <p>{{ object.body|linebreaksbr }}</p>
+{% endautoescape %}
 </div>
 {% endblock content %}
 {% block textbox %}
