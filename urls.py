@@ -1,5 +1,6 @@
 from django.conf.urls.defaults import *
 from django.views.generic import list_detail
+from django.views.generic.simple import direct_to_template
 from hitchhiker.models import Itinerary, Position, Location
 from hitchhiker.views import PositionHandler
 
@@ -13,7 +14,7 @@ itinerary_list = {
 
 urlpatterns = patterns('',
     # Example:
-    #(r'^/', include('hitchhiking.hitchhiker.urls')),
+    (r'^/$', direct_to_template, {'template': 'home.html'}),
 
     # current itinerary (or redirect to about)
     (r'^hitchhiking/$', 'hitchhiker.views.home', {}, 'home'),
@@ -31,6 +32,7 @@ urlpatterns = patterns('',
     (r'^hitchhiking/(?P<itinerary_id>\d+).gpx$', 'hitchhiker.views.get_gpx', {}, 'gpx'),
     (r'^hitchhiking/contact/', include('contact_form.urls')),
     (r'^hitchhiking/blog/', include('blog.urls')),
+    (r'^contact/', include('contact_form.urls')),
 
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
     # to INSTALLED_APPS to enable admin documentation:
