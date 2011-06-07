@@ -1,0 +1,4 @@
+*.pyc
+hitchhiker/migrations
+blog/migrations
+upload/migrations

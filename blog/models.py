@@ -2,7 +2,7 @@ from django.db import models
 from django.template.defaultfilters import slugify
 from django.db.models import permalink
 
-from hitchhiker.models import Itinerary
+from hitchhiking.hitchhiker.models import Itinerary
 import datetime
 
 class Post(models.Model):

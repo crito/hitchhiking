@@ -1,2 +1,3 @@
 [paths]
-default = http://bitbucket.org/ubernostrum/django-contact-form
+default = http://bitbucket.org/ubernostrum/django-contact-form/
+

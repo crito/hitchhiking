@@ -3,12 +3,13 @@ from django.template import RequestContext
 from django.http import Http404, HttpResponse
 from django.db.models import Min, Max
 
-from hitchhiker.models import Itinerary, Position, Location
-from blog.models import Post
+from models import Itinerary, Position, Location
+from hitchhiking.blog.models import Post
 from django.core import serializers
 import simplejson as json
 
 def home(request):
+    """Display either the active trip or redirect. Index of this app."""
     active_trip = Itinerary.objects.filter(active=True)
     if active_trip:
         return render_to_response('hitchhiker/active_trip.html', {
@@ -28,6 +29,7 @@ def map(request):
             context_instance=RequestContext(request))
 
 def past_trip(request, object_id):
+    """Display a past trip."""
     past_trip = get_object_or_404(Itinerary, pk=object_id)
     posts = Post.objects.filter(itinerary=past_trip)
 

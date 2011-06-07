@@ -1,7 +1,7 @@
 from django.conf.urls.defaults import *
 from django.views.generic import list_detail
-from blog.models import Post
-from blog import views
+from models import Post
+#from blog import views
 
 post_list = {
     'queryset': Post.objects.filter(status=2),
