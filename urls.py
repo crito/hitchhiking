@@ -14,7 +14,7 @@ itinerary_list = {
 
 urlpatterns = patterns('',
     # Example:
-    (r'^/$', direct_to_template, {'template': 'home.html'}),
+    (r'^$', direct_to_template, {'template': 'home.html'}),
 
     # current itinerary (or redirect to about)
     (r'^hitchhiking/$', 'hitchhiking.hitchhiker.views.home', {}, 'home'),
@@ -31,7 +31,7 @@ urlpatterns = patterns('',
     (r'^hitchhiking/position/$', PositionHandler()),
     (r'^hitchhiking/(?P<itinerary_id>\d+).gpx$', 'hitchhiking.hitchhiker.views.get_gpx', {}, 'gpx'),
     (r'^hitchhiking/contact/', include('contact_form.urls')),
-    (r'^hitchhiking/blog/', include('blog.urls')),
+    (r'^hitchhiking/blog/', include('hitchhiking.blog.urls')),
     (r'^contact/', include('contact_form.urls')),
 
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
