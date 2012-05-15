@@ -1,9 +1,7 @@
 Django==1.2.1
 South==0.7.1
 Werkzeug==0.6.2
-#distribute==0.6.10
 django-extensions==0.5
-#gunicorn==0.9.1
 docutils==0.6
 setproctitle==1.0.1
 psycopg2
@@ -11,4 +9,3 @@ pygments
 django-debug-toolbar
 -e hg+http://bitbucket.org/ubernostrum/django-contact-form/#egg=django-contact-form
 simplejson
-distribute
