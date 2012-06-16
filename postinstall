@@ -1,2 +1,2 @@
 #!/bin/sh
-/app/env/bin/python manage.py loaddata all
+python manage.py loaddata all
